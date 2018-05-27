@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		573B7FE020BA98110097D141 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 573B7FDF20BA98110097D141 /* main.cpp */; };
+		573B7FE820BA9AD30097D141 /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573B7FE720BA9AD30097D141 /* libpng16.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		573B7FDC20BA98110097D141 /* MandelAgent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MandelAgent; sourceTree = BUILT_PRODUCTS_DIR; };
 		573B7FDF20BA98110097D141 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		573B7FE720BA9AD30097D141 /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573B7FE820BA9AD30097D141 /* libpng16.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +46,7 @@
 			children = (
 				573B7FDE20BA98110097D141 /* MandelAgent */,
 				573B7FDD20BA98110097D141 /* Products */,
+				573B7FE620BA9AD20097D141 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +64,14 @@
 				573B7FDF20BA98110097D141 /* main.cpp */,
 			);
 			path = MandelAgent;
+			sourceTree = "<group>";
+		};
+		573B7FE620BA9AD20097D141 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				573B7FE720BA9AD30097D141 /* libpng16.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +252,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GFA44HP2SN;
 				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/libpng/1.6.34/lib,
+				);
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,6 +269,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GFA44HP2SN;
 				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/libpng/1.6.34/lib,
+				);
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
