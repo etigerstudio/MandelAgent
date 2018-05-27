@@ -9,10 +9,8 @@
 #include <iostream>
 #include <png++/png.hpp>
 #include <mpi.h>
+#include "main.h"
 
-struct complex {
-    double real, imag;
-};
 
 complex operator*(const complex c1,const complex c2){
     return complex

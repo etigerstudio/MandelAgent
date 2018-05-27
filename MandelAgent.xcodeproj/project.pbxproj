@@ -27,6 +27,7 @@
 		573B7FDC20BA98110097D141 /* MandelAgent */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MandelAgent; sourceTree = BUILT_PRODUCTS_DIR; };
 		573B7FDF20BA98110097D141 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		573B7FE720BA9AD30097D141 /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.a; sourceTree = "<group>"; };
+		573B7FE920BABDC30097D141 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				573B7FDF20BA98110097D141 /* main.cpp */,
+				573B7FE920BABDC30097D141 /* main.h */,
 			);
 			path = MandelAgent;
 			sourceTree = "<group>";
