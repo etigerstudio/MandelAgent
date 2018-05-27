@@ -9,11 +9,13 @@
 #ifndef main_h
 #define main_h
 
-struct complex {
+class complex {
+public:
     double real, imag;
+    double norm();
 };
 
-complex operator*(const complex c1,const complex c2);
-complex operator+(const complex c1,const complex c2);
+complex operator*(const complex& c1,const complex& c2);
+complex operator+(const complex& c1,const complex& c2);
 
 #endif /* main_h */
