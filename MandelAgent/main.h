@@ -14,5 +14,6 @@ struct complex {
 };
 
 complex operator*(const complex c1,const complex c2);
+complex operator+(const complex c1,const complex c2);
 
 #endif /* main_h */
