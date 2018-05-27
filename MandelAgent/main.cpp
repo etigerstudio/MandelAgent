@@ -11,6 +11,19 @@
 #include <mpi.h>
 #include "main.h"
 
+bool isMandel(complex c){
+    int count = 0;
+    complex z = c;
+    while (count<ITERATION && z.norm()<=4) {
+        z = z * z + c;
+        count++;
+    }
+    if(count<ITERATION){
+        return false;
+    } else {
+        return true;
+    }
+}
 
 double complex::norm(){
     return this->imag * this->imag + this->real * this->real;
