@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <png++/png.hpp>
+#include <mpi.h>
 
 int main(int argc, const char * argv[]) {
     // insert code here...
