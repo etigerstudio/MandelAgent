@@ -11,7 +11,18 @@
 #include <mpi.h>
 #include "main.h"
 
+using namespace png;
+
+const int RESOLUTION = 400;
 const int ITERATION = 1000;
+const double X_MIN = -2;
+const double X_MAX = 2;
+const double Y_MIN = -2;
+const double Y_MAX = 2;
+
+const rgb_pixel WHITE = rgb_pixel(255, 255, 255);
+const rgb_pixel BLACK = rgb_pixel(0, 0, 0);
+
 bool isMandel(complex c){
     int count = 0;
     complex z = c;
