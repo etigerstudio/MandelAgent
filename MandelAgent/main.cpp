@@ -11,6 +11,7 @@
 #include <mpi.h>
 #include "main.h"
 
+const int ITERATION = 1000;
 bool isMandel(complex c){
     int count = 0;
     complex z = c;
