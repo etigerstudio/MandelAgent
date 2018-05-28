@@ -13,10 +13,6 @@ using namespace png;
 
 const int RESOLUTION = 400;
 const int ITERATION = 1000;
-const double MIN_X = -2;
-const double MAX_X = 1;
-const double MIN_Y = -1.5;
-const double MAX_Y = 1.5;
 
 const int COLS = 2;
 const int ROWS = 2;
@@ -24,6 +20,10 @@ const int ROWS = 2;
 const rgb_pixel WHITE = rgb_pixel(255, 255, 255);
 const rgb_pixel BLACK = rgb_pixel(0, 0, 0);
 
+double MIN_X = -2;
+double MAX_X = 1;
+double MIN_Y = -1.5;
+double MAX_Y = 1.5;
 class complex {
 public:
     double real, imag;
