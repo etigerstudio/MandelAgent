@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		573B7FE020BA98110097D141 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 573B7FDF20BA98110097D141 /* main.cpp */; };
 		573B7FE820BA9AD30097D141 /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573B7FE720BA9AD30097D141 /* libpng16.a */; };
+		573B805A20BC139D0097D141 /* libmpi.40.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 573B805920BC139D0097D141 /* libmpi.40.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		573B7FDF20BA98110097D141 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		573B7FE720BA9AD30097D141 /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.a; sourceTree = "<group>"; };
 		573B7FE920BABDC30097D141 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		573B805920BC139D0097D141 /* libmpi.40.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpi.40.dylib; path = "../../../../../usr/local/Cellar/open-mpi/3.1.0/lib/libmpi.40.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573B805A20BC139D0097D141 /* libmpi.40.dylib in Frameworks */,
 				573B7FE820BA9AD30097D141 /* libpng16.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +74,7 @@
 		573B7FE620BA9AD20097D141 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				573B805920BC139D0097D141 /* libmpi.40.dylib */,
 				573B7FE720BA9AD30097D141 /* libpng16.a */,
 			);
 			name = Frameworks;
@@ -257,6 +261,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					/usr/local/Cellar/libpng/1.6.34/lib,
+					"/usr/local/Cellar/open-mpi/3.1.0/lib",
 				);
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
@@ -274,6 +279,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					/usr/local/Cellar/libpng/1.6.34/lib,
+					"/usr/local/Cellar/open-mpi/3.1.0/lib",
 				);
 				OTHER_CFLAGS = "";
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
