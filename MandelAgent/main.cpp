@@ -59,6 +59,13 @@ void renderMandel(double minX, double maxX, double minY, double maxY, int resX, 
     printf("Render Complete\n");
     image.write(filename);
 }
+
+const char* filenameForRank(int rank) {
+    char* filename = new char[15];
+    sprintf(filename, "mandel%d.png",rank);
+    return filename;
+}
+
 int initMPI() {
     MPI_Init(NULL, NULL);
     int world_size;
@@ -76,6 +83,15 @@ int initMPI() {
 void deinitMPI() {
     MPI_Finalize();
 }
+
+double calcLowerBound(double min, double max, double sum, double order) {
+    return min + (max - min) / sum * order;
+}
+
+double calcUpperBound(double min, double max, double sum, double lower) {
+    return lower + (max - min) / sum ;
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";

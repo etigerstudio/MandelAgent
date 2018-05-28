@@ -38,4 +38,8 @@ void renderMandel(double minX, double maxX, double minY, double maxY, int resX, 
 
 int initMPI();
 void deinitMPI();
+
+double calcLowerBound(double min, double max, double sum, double order);
+double calcUpperBound(double min, double max, double sum, double lower);
+const char* filenameForRank(int rank);
 #endif /* main_h */
