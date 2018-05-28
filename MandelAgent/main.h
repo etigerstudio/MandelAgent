@@ -37,6 +37,7 @@ bool isMandel(complex c);
 void renderMandel(double minX, double maxX, double minY, double maxY, int resX, int resY, rgb_pixel defaultColor, rgb_pixel mandelColor, char const* filename);
 
 int initMPI();
+void parseArguments(int argc, const char * argv[]);
 void deinitMPI();
 
 double calcLowerBound(double min, double max, double sum, double order);

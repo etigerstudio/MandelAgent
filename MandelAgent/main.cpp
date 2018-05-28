@@ -101,11 +101,23 @@ void renderForRank(int rank) {
     double maxY = calcUpperBound(MIN_Y, MAX_Y, ROWS, minY);
     
     renderMandel(minX, maxX, minY, maxY, RESOLUTION, RESOLUTION, BLACK, WHITE, filenameForRank(rank));
+    renderMandel(minX, maxX, minY, maxY, RESOLUTION,
+                 RESOLUTION, BLACK, WHITE, filenameForRank(rank));
 }
+void parseArguments(int argc, const char * argv[]){
+    if(argc == 5){
+        MIN_X = atof(argv[1]);
+        MAX_X = atof(argv[2]);
+        MIN_Y = atof(argv[3]);
+        MAX_Y = atof(argv[4]);
+    }
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
     int rank = initMPI();
+    parseArguments(argc, argv);
     renderForRank(rank);
     deinitMPI();
     return 0;
