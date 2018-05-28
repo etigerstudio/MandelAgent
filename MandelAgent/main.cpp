@@ -59,6 +59,23 @@ void renderMandel(double minX, double maxX, double minY, double maxY, int resX, 
     printf("Render Complete\n");
     image.write(filename);
 }
+int initMPI() {
+    MPI_Init(NULL, NULL);
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(processor_name, &name_len);
+    printf("Hello world from processor %s, rank %d out of %d processors\n",
+           processor_name, world_rank, world_size);
+    return world_rank;
+}
+
+void deinitMPI() {
+    MPI_Finalize();
+}
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";

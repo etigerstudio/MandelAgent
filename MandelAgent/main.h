@@ -36,4 +36,6 @@ complex operator+(const complex& c1,const complex& c2);
 bool isMandel(complex c);
 void renderMandel(double minX, double maxX, double minY, double maxY, int resX, int resY, rgb_pixel defaultColor, rgb_pixel mandelColor, char const* filename);
 
+int initMPI();
+void deinitMPI();
 #endif /* main_h */
