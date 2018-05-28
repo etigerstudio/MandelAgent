@@ -92,8 +92,21 @@ double calcUpperBound(double min, double max, double sum, double lower) {
     return lower + (max - min) / sum ;
 }
 
+void renderForRank(int rank) {
+    int col = rank % COLS;
+    int row = rank / COLS;
+    double minX = calcLowerBound(MIN_X, MAX_X, COLS, col);
+    double maxX = calcUpperBound(MIN_X, MAX_X, COLS, minX);
+    double minY = calcLowerBound(MIN_Y, MAX_Y, ROWS, row);
+    double maxY = calcUpperBound(MIN_Y, MAX_Y, ROWS, minY);
+    
+    renderMandel(minX, maxX, minY, maxY, RESOLUTION, RESOLUTION, BLACK, WHITE, filenameForRank(rank));
+}
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+    int rank = initMPI();
+    renderForRank(rank);
+    deinitMPI();
     return 0;
 }

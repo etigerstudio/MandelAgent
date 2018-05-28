@@ -41,5 +41,8 @@ void deinitMPI();
 
 double calcLowerBound(double min, double max, double sum, double order);
 double calcUpperBound(double min, double max, double sum, double lower);
+
+void renderForRank(int rank);
 const char* filenameForRank(int rank);
+
 #endif /* main_h */
