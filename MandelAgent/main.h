@@ -11,8 +11,14 @@
 
 using namespace png;
 
-const int RESOLUTION = 400;
+int RESOLUTION_X = 400;
+int RESOLUTION_Y = 400;
+
 const int ITERATION = 1000;
+//const double MIN_X = -2;
+//const double MAX_X = 1;
+//const double MIN_Y = -1.5;
+//const double MAX_Y = 1.5;
 
 const int COLS = 2;
 const int ROWS = 2;
@@ -24,6 +30,7 @@ double MIN_X = -2;
 double MAX_X = 1;
 double MIN_Y = -1.5;
 double MAX_Y = 1.5;
+
 class complex {
 public:
     double real, imag;

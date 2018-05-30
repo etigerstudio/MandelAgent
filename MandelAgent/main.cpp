@@ -67,16 +67,9 @@ const char* filenameForRank(int rank) {
 }
 
 int initMPI() {
-    MPI_Init(NULL, NULL);
-    int world_size;
-    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    MPI_Init(0, NULL);
     int world_rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
-    char processor_name[MPI_MAX_PROCESSOR_NAME];
-    int name_len;
-    MPI_Get_processor_name(processor_name, &name_len);
-    printf("Hello world from processor %s, rank %d out of %d processors\n",
-           processor_name, world_rank, world_size);
     return world_rank;
 }
 
@@ -100,22 +93,24 @@ void renderForRank(int rank) {
     double minY = calcLowerBound(MIN_Y, MAX_Y, ROWS, row);
     double maxY = calcUpperBound(MIN_Y, MAX_Y, ROWS, minY);
     
-    renderMandel(minX, maxX, minY, maxY, RESOLUTION, RESOLUTION, BLACK, WHITE, filenameForRank(rank));
-    renderMandel(minX, maxX, minY, maxY, RESOLUTION,
-                 RESOLUTION, BLACK, WHITE, filenameForRank(rank));
+    renderMandel(minX, maxX, minY, maxY, RESOLUTION_X,
+                 RESOLUTION_Y, BLACK, WHITE, filenameForRank(rank));
 }
+
 void parseArguments(int argc, const char * argv[]){
-    if(argc == 5){
+    if(argc >= 5){
         MIN_X = atof(argv[1]);
         MAX_X = atof(argv[2]);
         MIN_Y = atof(argv[3]);
         MAX_Y = atof(argv[4]);
+        if(argc >= 7) {
+            RESOLUTION_X = atoi(argv[5]);
+            RESOLUTION_Y = atoi(argv[6]);
+        }
     }
 }
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
     int rank = initMPI();
     parseArguments(argc, argv);
     renderForRank(rank);
