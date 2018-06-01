@@ -55,7 +55,7 @@ void renderMandel(double minX, double maxX, double minY, double maxY, int resX, 
 //              Faster, but may cause segument fault:
 //            image[x][y] = rgb_pixel(colorMap[it].r,
 //                                    colorMap[it].g,colorMap[it].b);
-            image.set_pixel(x, y, rgb_pixel(colorMap[it].r, colorMap[it].g, colorMap[it].b));
+            image.set_pixel(x, resY - y - 1, rgb_pixel(colorMap[it].r, colorMap[it].g, colorMap[it].b));
         }
     }
     printf("Render Complete\n");
@@ -79,21 +79,15 @@ void deinitMPI() {
     MPI_Finalize();
 }
 
-double calcLowerBound(double min, double max, double sum, double order) {
-    return min + (max - min) / sum * order;
-}
-
-double calcUpperBound(double min, double max, double sum, double lower) {
-    return lower + (max - min) / sum ;
-}
-
 void renderForRank(int rank) {
     int col = rank % COLS;
     int row = rank / COLS;
-    double minX = calcLowerBound(MIN_X, MAX_X, COLS, col);
-    double maxX = calcUpperBound(MIN_X, MAX_X, COLS, minX);
-    double minY = calcLowerBound(MIN_Y, MAX_Y, ROWS, row);
-    double maxY = calcUpperBound(MIN_Y, MAX_Y, ROWS, minY);
+    double blockX = (MAX_X - MIN_X) / COLS;
+    double blockY = (MAX_Y - MIN_Y) / ROWS;
+    double minX = MIN_X + blockX * col;
+    double maxX = minX + blockX;
+    double maxY = MAX_Y - blockY * row;
+    double minY = maxY - blockY;
     
     renderMandel(minX, maxX, minY, maxY, RESOLUTION_X,
                  RESOLUTION_Y, colorMap, filenameForRank(rank));
