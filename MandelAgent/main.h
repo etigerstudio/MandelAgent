@@ -9,22 +9,21 @@
 #ifndef main_h
 #define main_h
 
+#include "colorMap.h"
+
 using namespace png;
 
 int RESOLUTION_X = 400;
 int RESOLUTION_Y = 400;
 
-const int ITERATION = 1000;
-//const double MIN_X = -2;
-//const double MAX_X = 1;
-//const double MIN_Y = -1.5;
-//const double MAX_Y = 1.5;
+const int ITERATION = 512;
+const int COLOR_MAP_COUNT = 256;
 
 const int COLS = 2;
 const int ROWS = 2;
 
-const rgb_pixel WHITE = rgb_pixel(255, 255, 255);
-const rgb_pixel BLACK = rgb_pixel(0, 0, 0);
+//const rgb_pixel WHITE = rgb_pixel(255, 255, 255);
+//const rgb_pixel BLACK = rgb_pixel(0, 0, 0);
 
 double MIN_X = -2;
 double MAX_X = 1;

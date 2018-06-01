@@ -13,18 +13,20 @@
 
 using namespace png;
 
-bool isMandel(complex c){
+int mandelIter(complex c){
     int count = 0;
     complex z = c;
     while (count<ITERATION && z.norm()<=4) {
         z = z * z + c;
         count++;
     }
-    if(count<ITERATION){
+    return count;
+    //Legacy isMandel():
+    /*if(count<ITERATION){
         return false;
     } else {
         return true;
-    }
+    }*/
 }
 
 double complex::norm(){
@@ -42,18 +44,18 @@ complex operator+(const complex& c1,const complex& c2){
     {c1.real + c2.real, c1.imag + c2.imag};
 }
 
-void renderMandel(double minX, double maxX, double minY, double maxY, int resX, int resY, rgb_pixel defaultColor, rgb_pixel mandelColor, const char* filename){
+void renderMandel(double minX, double maxX, double minY, double maxY, int resX, int resY, pixel colorMap[], const char* filename){
     image<rgb_pixel> image(resX, resY);
     for (int y=0; y<resY; y++) {
         for (int x=0; x<resX; x++) {
             complex c = complex
             {minX + (maxX-minX) * x/resX,
                 minY + (maxY-minY) * y/resY};
-            if (isMandel(c)) {
-                image.set_pixel(x, y, mandelColor);
-            } else {
-                image.set_pixel(x, y, defaultColor);
-            }
+            int it = (mandelIter(c)-1) * COLOR_MAP_COUNT / ITERATION;
+//              Faster, but may cause segument fault:
+//            image[x][y] = rgb_pixel(colorMap[it].r,
+//                                    colorMap[it].g,colorMap[it].b);
+            image.set_pixel(x, y, rgb_pixel(colorMap[it].r, colorMap[it].g, colorMap[it].b));
         }
     }
     printf("Render Complete\n");
@@ -94,7 +96,7 @@ void renderForRank(int rank) {
     double maxY = calcUpperBound(MIN_Y, MAX_Y, ROWS, minY);
     
     renderMandel(minX, maxX, minY, maxY, RESOLUTION_X,
-                 RESOLUTION_Y, BLACK, WHITE, filenameForRank(rank));
+                 RESOLUTION_Y, colorMap, filenameForRank(rank));
 }
 
 void parseArguments(int argc, const char * argv[]){
