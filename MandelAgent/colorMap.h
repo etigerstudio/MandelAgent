@@ -10,7 +10,7 @@
 #define colorMap_h
 
 struct pixel {
-    int r,g,b;
+    unsigned char r,g,b;
 };
 
 pixel colorMap[256] = {{0,7,100},
